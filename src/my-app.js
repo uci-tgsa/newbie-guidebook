@@ -16,12 +16,14 @@ import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-header-layout/app-header-layout.js';
 import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
+import '@polymer/app-layout/app-grid/app-grid-style.js';
 import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
+import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
+import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
-import './my-icons.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -34,7 +36,7 @@ setRootPath(MyAppGlobals.rootPath);
 class MyApp extends PolymerElement {
   static get template() {
     return html`
-      <style>
+      <style include="app-grid-style iron-flex iron-flex-alignment">
         :host {
           --app-primary-color: #4285f4;
           --app-secondary-color: black;
@@ -46,9 +48,16 @@ class MyApp extends PolymerElement {
           display: none;
         }
 
+        app-toolbar {
+          --app-toolbar-font-size: 25px;
+        }
+
         app-header {
-          color: #fff;
-          background-color: var(--app-primary-color);
+          color: #000;
+          background-color: transparent;
+          --app-header-background-rear-layer: {
+            background-color: #CFD8DC;
+          };
         }
 
         app-header paper-icon-button {
@@ -79,11 +88,12 @@ class MyApp extends PolymerElement {
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
       </app-route>
 
-      <app-drawer-layout fullbleed="" narrow="{{narrow}}">
+      <app-drawer-layout fullbleed force-narrow narrow="{{narrow}}">
         <!-- Drawer content -->
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
-          <app-toolbar>Menu</app-toolbar>
+          <app-toolbar>目錄</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+            <a name="landing" href="[[rootPath]]landing">Home</a>  
             <a name="view1" href="[[rootPath]]view1">View One</a>
             <a name="view2" href="[[rootPath]]view2">View Two</a>
             <a name="view3" href="[[rootPath]]view3">View Three</a>
@@ -93,14 +103,17 @@ class MyApp extends PolymerElement {
         <!-- Main content -->
         <app-header-layout has-scrolling-region="">
 
-          <app-header slot="header" condenses="" reveals="" effects="waterfall">
+          <app-header slot="header" reveals condenses effects="waterfall blend-background">
             <app-toolbar>
-              <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">My App</div>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <div main-title class="layout vertical center">
+                TGSA 2019 新生手冊
+              </div>
             </app-toolbar>
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
+            <landing-page name="landing"></landing-page>
             <my-view1 name="view1"></my-view1>
             <my-view2 name="view2"></my-view2>
             <my-view3 name="view3"></my-view3>
@@ -135,8 +148,8 @@ class MyApp extends PolymerElement {
      // If no page was found in the route data, page will be an empty string.
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
-      this.page = 'view1';
-    } else if (['view1', 'view2', 'view3'].indexOf(page) !== -1) {
+      this.page = 'landing';
+    } else if (['view1', 'view2', 'view3', 'landing'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -154,6 +167,9 @@ class MyApp extends PolymerElement {
     // Note: `polymer build` doesn't like string concatenation in the import
     // statement, so break it up.
     switch (page) {
+      case 'landing':
+        import('./landing-page.js');
+        break;
       case 'view1':
         import('./my-view1.js');
         break;
