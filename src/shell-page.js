@@ -1,13 +1,3 @@
-/**
- * @license
- * Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
- * This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
- * The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
- * The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
- * Code distributed by Google as part of the polymer project is also
- * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
- */
-
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
@@ -33,7 +23,7 @@ setPassiveTouchGestures(true);
 // in `index.html`.
 setRootPath(MyAppGlobals.rootPath);
 
-class MyApp extends PolymerElement {
+class ShellPage extends PolymerElement {
   static get template() {
     return html`
       <style include="app-grid-style iron-flex iron-flex-alignment">
@@ -93,10 +83,8 @@ class MyApp extends PolymerElement {
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
           <app-toolbar>目錄</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="landing" href="[[rootPath]]landing">Home</a>  
-            <a name="view1" href="[[rootPath]]view1">View One</a>
-            <a name="view2" href="[[rootPath]]view2">View Two</a>
-            <a name="view3" href="[[rootPath]]view3">View Three</a>
+            <a name="landing" href="[[rootPath]]landing">主選單</a>  
+            <a name="tldr" href="[[rootPath]]tldr">懶人包</a>  
           </iron-selector>
         </app-drawer>
 
@@ -114,9 +102,7 @@ class MyApp extends PolymerElement {
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
             <landing-page name="landing"></landing-page>
-            <my-view1 name="view1"></my-view1>
-            <my-view2 name="view2"></my-view2>
-            <my-view3 name="view3"></my-view3>
+            <tldr-page name="tldr"></tldr-page>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
         </app-header-layout>
@@ -149,7 +135,7 @@ class MyApp extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'landing';
-    } else if (['view1', 'view2', 'view3', 'landing'].indexOf(page) !== -1) {
+    } else if (['tldr', 'landing'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -170,14 +156,8 @@ class MyApp extends PolymerElement {
       case 'landing':
         import('./landing-page.js');
         break;
-      case 'view1':
-        import('./my-view1.js');
-        break;
-      case 'view2':
-        import('./my-view2.js');
-        break;
-      case 'view3':
-        import('./my-view3.js');
+      case 'tldr':
+        import('./tldr-page.js');
         break;
       case 'view404':
         import('./my-view404.js');
@@ -186,4 +166,4 @@ class MyApp extends PolymerElement {
   }
 }
 
-window.customElements.define('my-app', MyApp);
+window.customElements.define('shell-page', ShellPage);
