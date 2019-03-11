@@ -9,6 +9,7 @@ import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import '@polymer/app-layout/app-grid/app-grid-style.js';
 import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
+import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
 import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
@@ -70,6 +71,17 @@ class ShellPage extends PolymerElement {
           color: black;
           font-weight: bold;
         }
+
+        .footer {
+          @apply --layout-vertical;
+          @apply --layout-center;
+
+          margin: 0;
+          margin-top: 50px;
+          padding: 24px;
+          background-color: #455A64;
+          color: #BDBDBD;
+        }
       </style>
 
       <app-location route="{{route}}" url-space-regex="^[[rootPath]]">
@@ -105,6 +117,11 @@ class ShellPage extends PolymerElement {
             <tldr-page name="tldr"></tldr-page>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
+
+          <div class="footer">
+            <span>Released Under Apache License 2.0 by UCI TGSA 2019</span>
+
+          </div>
         </app-header-layout>
       </app-drawer-layout>
     `;

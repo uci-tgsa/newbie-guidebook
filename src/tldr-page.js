@@ -32,6 +32,26 @@ class TlDrPage extends PolymerElement {
                         init: false,
                         content: '請稍等...'
                     },
+                    flight: {
+                        path: '/assets/tldr/flight.md',
+                        init: false,
+                        content: '請稍等...'
+                    },
+                    luggage: {
+                        path: '/assets/tldr/luggage.md',
+                        init: false,
+                        content: '請稍等...'
+                    },
+                    fromAirport: {
+                        path: '/assets/tldr/from-airport.md',
+                        init: false,
+                        content: '請稍等...'
+                    },
+                    schoolCheckin: {
+                        path: '/assets/tldr/checkin.md',
+                        init: false,
+                        content: '請稍等...'
+                    },
                 }
             }
         };
@@ -116,6 +136,19 @@ class TlDrPage extends PolymerElement {
                 @apply --layout-center;
                 margin-top: 12px;
                 margin-bottom: 12px;
+            }
+
+            #bottomNavigate {
+                @apply --layout-horizontal;
+                @apply --layout-center;
+                @apply --layout-center-justified;
+                width: 100%;
+
+                margin-top: 30px;
+                --paper-button: {
+                    background-color: #7E57C2;
+                    color: white;
+                };
             }
         </style>
         <paper-dialog id="detailDialog" no-cancel-on-outside-click>
@@ -210,15 +243,36 @@ class TlDrPage extends PolymerElement {
         <div class="item-bar">
             <div class="circle">1</div>
             <div class="card">
-                <h2 title>機場到 UCI</h2>
+                <div title-bar>
+                    <h2 title>從機場到 UCI</h2>
+                    <div class="flex"></div>
+                    <paper-button  id="butFromAirport" on-click="_openDialog">
+                        更多
+                    </paper-button>
+                </div>
             </div>
         </div>
 
         <div class="item-bar">
             <div class="circle">2</div>
             <div class="card">
-                <h2 title>學校報到</h2>
+                <div title-bar>
+                    <h2 title>學校報到</h2>
+                    <div class="flex"></div>
+                    <paper-button  id="butSchoolCheckin" on-click="_openDialog">
+                        更多
+                    </paper-button>
+                </div>
             </div>
+        </div>
+
+        <div id="bottomNavigate">
+            <paper-button>
+                回到主目錄
+            </paper-button>
+            <paper-button>
+                文件版新生手冊
+            </paper-button>
         </div>
         `;
     }
@@ -256,6 +310,18 @@ class TlDrPage extends PolymerElement {
                 break;
             case 'butSchool':
                 this._prepareDialog('school').open();
+                break;
+            case 'butFlight':
+                this._prepareDialog('flight').open();
+                break;
+            case 'butLuggage':
+                this._prepareDialog('luggage').open();
+                break;
+            case 'butFromAirport':
+                this._prepareDialog('fromAirport').open();
+                break;
+            case 'butSchoolCheckin':
+                this._prepareDialog('schoolCheckin').open();
                 break;
         }
     }

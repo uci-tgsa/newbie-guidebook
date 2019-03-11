@@ -1,8 +1,9 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.js",
+  "shell": "src/shell-page.js",
   "sources": [
-    "images/**/*"
+    "images/**/*",
+    "assets/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
