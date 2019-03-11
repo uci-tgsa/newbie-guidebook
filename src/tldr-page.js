@@ -288,7 +288,7 @@ class TlDrPage extends PolymerElement {
             // fetch
             let path = this.get(`_details.${key}.path`);
             console.debug(`Fetching detailed content for ${path}...`);
-            window.fetch(path)
+            window.fetch(window.MyAppGlobals.rootPath + path)
                 .then(resp => resp.text())
                 .then((txt => {
                     this.set(`_details.${key}.content`, txt);
