@@ -21,10 +21,15 @@
     "@polymer/iron-media-query": "^3.0.0-pre.15",
     "@polymer/iron-pages": "^3.0.0-pre.15",
     "@polymer/iron-selector": "^3.0.0-pre.15",
+    "@polymer/marked-element": "^3.0.1",
+    "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-dialog": "^3.0.1",
+    "@polymer/paper-dialog-scrollable": "^3.0.1",
     "@polymer/paper-icon-button": "^3.0.0-pre.15",
     "@polymer/polymer": "^3.0.0",
     "@webcomponents/webcomponentsjs": "^2.0.0",
-    "lit-element": "^2.0.1"
+    "lit-element": "^2.0.1",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "polymer-cli": "^1.7.1",
