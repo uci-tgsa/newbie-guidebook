@@ -28,6 +28,11 @@ class LandingPage extends PolymerElement {
           }
         }
 
+        a[navi-tile] {
+          text-transform: none;
+          text-decoration: none;
+        }
+
         .card {
           @apply --layout-vertical;
           @apply --layout-center;
@@ -38,7 +43,11 @@ class LandingPage extends PolymerElement {
         }
         .card h1 {
           font-size: 1.8em;
-          margin-top: 0;
+          margin-top: 20px;
+          color: black;
+        }
+        .card h1[disabled] {
+          color: #757575;
         }
         .card p {
           font-size: 1.2em;
@@ -48,45 +57,47 @@ class LandingPage extends PolymerElement {
       </style>
 
       <div class="app-grid">
-        <div class="card">
-          <iron-icon icon="error-outline"></iron-icon>
-          <h1>初心者懶人包</h1>
-          <p>行前準備、初來乍到...</p>
-        </div>
+        <a navi-tile href="[[rootPath]]tldr">
+          <div class="card" style="background-color: #E1F5FE;">
+            <iron-icon icon="touch-app"></iron-icon>
+            <h1>初心者懶人包</h1>
+            <p>行前準備、初來乍到...</p>
+          </div>
+        </a>
 
         <div class="card">
-          <iron-icon icon="error-outline"></iron-icon>
-          <h1>住宿</h1>
+          <iron-icon icon="remove-circle-outline"></iron-icon>
+          <h1 disabled>住宿</h1>
           <p>校內住宿、校外租屋...</p>
         </div>
 
         <div class="card">
-          <iron-icon icon="error-outline"></iron-icon>
-          <h1>飲食</h1>
+          <iron-icon icon="remove-circle-outline"></iron-icon>
+          <h1 disabled>飲食</h1>
           <p>呷飽沒？</p>
         </div>
 
         <div class="card">
-          <iron-icon icon="error-outline"></iron-icon>
-          <h1>交通</h1>
+          <iron-icon icon="remove-circle-outline"></iron-icon>
+          <h1 disabled>交通</h1>
           <p>買車、考駕照...</p>
         </div>
 
         <div class="card">
-          <iron-icon icon="error-outline"></iron-icon>
-          <h1>生活雜項</h1>
+          <iron-icon icon="remove-circle-outline"></iron-icon>
+          <h1 disabled>生活雜項</h1>
           <p>購物、出遊...</p>
         </div>
 
         <div class="card">
-          <iron-icon icon="error-outline"></iron-icon>
-          <h1>學校</h1>
+          <iron-icon icon="remove-circle-outline"></iron-icon>
+          <h1 disabled>學校</h1>
           <p>考試、TA...</p>
         </div>
 
         <div class="card">
-          <iron-icon icon="error-outline"></iron-icon>
-          <h1>眷屬相關</h1>
+          <iron-icon icon="remove-circle-outline"></iron-icon>
+          <h1 disabled>眷屬相關</h1>
         </div>
       </div>
     `;

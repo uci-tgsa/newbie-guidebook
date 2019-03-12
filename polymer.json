@@ -2,6 +2,8 @@
   "entrypoint": "index.html",
   "shell": "src/shell-page.js",
   "sources": [
+    "404.html",
+    ".nojekyll",
     "images/**/*",
     "assets/**/*"
   ],
@@ -66,7 +68,7 @@
     },
     {
       "name": "gh-pages",
-      "preset": "es6-bundled",
+      "preset": "es5-bundled",
       "basePath": "/newbie-guidebook/"
     }
   ],

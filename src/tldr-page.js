@@ -23,32 +23,32 @@ class TlDrPage extends PolymerElement {
                 type: Object,
                 value: {
                     visa: {
-                        path: '/assets/tldr/visa.md',
+                        path: 'assets/tldr/visa.md',
                         init: false,
                         content: '請稍等...'
                     },
                     school: {
-                        path: '/assets/tldr/school.md',
+                        path: 'assets/tldr/school.md',
                         init: false,
                         content: '請稍等...'
                     },
                     flight: {
-                        path: '/assets/tldr/flight.md',
+                        path: 'assets/tldr/flight.md',
                         init: false,
                         content: '請稍等...'
                     },
                     luggage: {
-                        path: '/assets/tldr/luggage.md',
+                        path: 'assets/tldr/luggage.md',
                         init: false,
                         content: '請稍等...'
                     },
                     fromAirport: {
-                        path: '/assets/tldr/from-airport.md',
+                        path: 'assets/tldr/from-airport.md',
                         init: false,
                         content: '請稍等...'
                     },
                     schoolCheckin: {
-                        path: '/assets/tldr/checkin.md',
+                        path: 'assets/tldr/checkin.md',
                         init: false,
                         content: '請稍等...'
                     },
@@ -288,7 +288,7 @@ class TlDrPage extends PolymerElement {
             // fetch
             let path = this.get(`_details.${key}.path`);
             console.debug(`Fetching detailed content for ${path}...`);
-            window.fetch(window.MyAppGlobals.rootPath + path)
+            window.fetch(path)
                 .then(resp => resp.text())
                 .then((txt => {
                     this.set(`_details.${key}.content`, txt);
