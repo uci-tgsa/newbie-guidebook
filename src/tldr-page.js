@@ -150,6 +150,10 @@ class TlDrPage extends PolymerElement {
                     color: white;
                 };
             }
+            #bottomNavigate a {
+                text-decoration: none;
+                text-transform: none;
+            }
         </style>
         <paper-dialog id="detailDialog" no-cancel-on-outside-click>
             <paper-dialog-scrollable>
@@ -267,10 +271,12 @@ class TlDrPage extends PolymerElement {
         </div>
 
         <div id="bottomNavigate">
-            <paper-button>
-                回到主目錄
-            </paper-button>
-            <paper-button>
+            <a href="[[rootPath]]landing" tabindex="-1">
+                <paper-button>
+                    回到主目錄
+                </paper-button>
+            </a>
+            <paper-button disabled>
                 文件版新生手冊
             </paper-button>
         </div>
