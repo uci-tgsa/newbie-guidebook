@@ -17,6 +17,10 @@ module.exports = {
     {
       urlPattern: /\/@webcomponents\/webcomponentsjs\//,
       handler: 'fastest'
+    },
+    {
+      urlPattern: /\/assets\//,
+      handler: 'fastest'
     }
   ]
 };
