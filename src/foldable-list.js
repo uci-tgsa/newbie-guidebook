@@ -1,5 +1,6 @@
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/polymer/lib/elements/dom-repeat.js';
+import '@polymer/polymer/lib/elements/dom-if.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/iron-collapse/iron-collapse.js';
 import '@polymer/iron-icon/iron-icon.js';
@@ -19,13 +20,7 @@ class FoldableList extends PolymerElement {
     static get properties() {
         return {
             listItems: {
-                type: Object
-            },
-            // key-value list converted from
-            // listItems
-            _kvItems: {
-                type: Array,
-                computed: '_computeKVItems(listItems)'
+                type: Array
             }
         }
     }
@@ -35,11 +30,15 @@ class FoldableList extends PolymerElement {
         <style>
         :host {
             @apply --layout-vertical;
+            /*@apply --layout-scroll;*/
             @apply --layout-start;
         }
 
         iron-collapse {
             width: 100%;
+        }
+        paper-icon-item {
+            box-sizing: border-box;
         }
 
         .group-title {
@@ -62,7 +61,7 @@ class FoldableList extends PolymerElement {
             font-size: 1.3em;
         }
         </style>
-        <template is="dom-repeat" items="[[_kvItems]]" as="group">
+        <template is="dom-repeat" items="[[listItems]]" as="group">
         <paper-icon-item class="group-title" toggles active="{{group.expand}}">
             <template is="dom-if" if="[[group.expand]]">
             <iron-icon icon="expand-less" slot="item-icon"></iron-icon>
@@ -97,20 +96,6 @@ class FoldableList extends PolymerElement {
      */
     ready() {
         super.ready();
-    }
-
-    _computeKVItems(items) {
-        if(!items) return [];
-        let result = [];
-        for(let k in items) {
-            if(items.hasOwnProperty(k)) {
-                result.push({
-                    key: k,
-                    values: items[k]
-                });
-            }
-        }
-        return result;
     }
 
     _onItemClick(e) {

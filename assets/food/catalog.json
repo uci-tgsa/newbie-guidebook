@@ -1,0 +1,16 @@
+[
+    {
+        "groupName": "手搖杯",
+        "items": [
+            {
+                "name": "Sharetea 歇腳亭",
+                "location": {
+                    "latituide": 33.65,
+                    "longitude": -117.84
+                },
+                "address": "4199 Campus Dr suite c, Irvine, CA 92612",
+                "detailPath": "assets/food/share-tea.md"
+            }
+        ]
+    }
+]
