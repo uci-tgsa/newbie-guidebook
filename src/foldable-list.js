@@ -57,7 +57,6 @@ class FoldableList extends PolymerElement {
         }
         .collapse-content > * {
             width: 100%;
-            padding-left: 40px;
             font-size: 1.3em;
         }
         </style>

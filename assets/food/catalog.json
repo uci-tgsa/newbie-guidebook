@@ -1,12 +1,75 @@
 [
     {
+        "groupName": "Food Court",
+        "items":[
+            {
+                "name": "Student Center",
+                "location":{
+                    "latitude": 33.6488657,
+                    "longitude": -117.8430165
+                },
+                "address": "311 West Peltason Drive, Irvine, CA"
+            },
+            {
+                "name": "Phoenix Food Court",
+                "location":{
+                    "latitude": 33.6455037,
+                    "longitude": -117.8407165
+                },
+                "address": "Ring Road, Irvine, CA",
+                "detailPath": "assets/food/phoenix.md"
+            },
+            {
+                "name": "BC's Cavern Food Court",
+                "location":{
+                    "latitude": 33.6459288,
+                    "longitude": -117.8445338
+                },
+                "address": "500 Inner Ring Road, Irvine, CA",
+                "detailPath": "assets/food/bc.md"
+            },
+            {
+                "name": "Paul Merage",
+                "location":{
+                    "latitude": 33.6468644,
+                    "longitude": -117.8381889
+                },
+                "address": "4293 Pereira Dr, Irvine, CA 92697",
+                "detailPath": "assets/food/paul-merage.md"
+            }
+        ]
+    },
+    {
+        "groupName": "Kiosk",
+        "items": [
+            {
+                "name": "Cafe Espresso",
+                "location": {
+                    "latitude": 33.6438763,
+                    "longitude": -117.8436453
+                },
+                "address": "Irvine, CA 92697",
+                "detailPath": "assets/food/cafe-espresso.md"
+            },
+            {
+                "name": "Java City",
+                "location": {
+                    "latitude": 33.6434354,
+                    "longitude": -117.8412595
+                },
+                "address": "2004 Los Trancos Dr, Irvine, CA 92617",
+                "detailPath": "assets/food/java-city.md"
+            }
+        ]
+    },
+    {
         "groupName": "手搖杯",
         "items": [
             {
-                "name": "Sharetea 歇腳亭",
+                "name": "Sharetea",
                 "location": {
-                    "latituide": 33.65,
-                    "longitude": -117.84
+                    "latitude": 33.6505562,
+                    "longitude": -117.8382501
                 },
                 "address": "4199 Campus Dr suite c, Irvine, CA 92612",
                 "detailPath": "assets/food/share-tea.md"
