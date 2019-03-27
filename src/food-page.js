@@ -78,6 +78,11 @@ class BetterMapMarker extends PolymerElement {
             @apply --shadow-elevation-4dp;
             padding: 14px;
         }
+        @media (max-width: 748px) {
+            .content {
+                min-width: 25vw;
+            }
+        }
 
         h3 {
             margin-top: 0;
@@ -239,7 +244,7 @@ class FoodPage extends PolymerElement {
                 padding: 0;
             };
         }
-        @media (max-width: 648px) {
+        @media (max-width: 748px) {
             #foodMap {
                 width: 100vw;
             }
@@ -267,11 +272,11 @@ class FoodPage extends PolymerElement {
             background-color: #E0E0E0;
         }
         </style>
-        <iron-media-query query="(max-width: 648px)"
+        <iron-media-query query="(max-width: 748px)"
             query-matches="{{_isSmallScreen}}"></iron-media-query>
 
         <google-map id="foodMap" api-key="[[_GMAP_API_KEY]]"
-            fit-to-markers
+            fit-to-markers single-info-window
             disable-default-ui
             disable-map-type-control
             disable-street-view-control>
@@ -334,8 +339,34 @@ class FoodPage extends PolymerElement {
         super.ready();
     }
 
+    _computeFlatIndex(groupIdx, itemIdx) {
+        let offset = 0;
+        for(let i = 0; i < groupIdx; ++i) {
+            let group = this._foodData[i];
+            offset += group.items.length;
+        }
+        offset += itemIdx;
+        return offset;
+    }
+
     _onItemClick(e) {
-        console.log(e.detail);
+        let map = this.$.foodMap;
+        // navigate to the corresponding map marker
+        let {groupIndex, itemIndex} = e.detail;
+        let flatIdx = this._computeFlatIndex(groupIndex, itemIndex);
+        let marker = this._mapMarkers[flatIdx];
+        let markerObj = map.markers[flatIdx];
+
+        map.latitude = marker.latitude;
+        map.longitude = marker.longitude;
+        map.zoom = 18.0;
+        markerObj.open = true;
+
+        // close dialog if any
+        if(this._isSmallScreen) {
+            let dialog = this.shadowRoot.querySelector('#listDialog');
+            dialog.close();
+        }
     }
 
     _computeDisplay(foodData) {
