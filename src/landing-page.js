@@ -1,12 +1,20 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import '@polymer/polymer/lib/elements/dom-if.js';
 import '@polymer/app-layout/app-grid/app-grid-style.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/iron-icons/maps-icons.js';
 import './shared-styles.js';
 
 class LandingPage extends PolymerElement {
+  static get properties() {
+    return {
+      isBeta: Boolean
+    };
+  }
+
   static get template() {
     return html`
       <style include="shared-styles app-grid-style">
@@ -71,11 +79,22 @@ class LandingPage extends PolymerElement {
           <p>校內住宿、校外租屋...</p>
         </div>
 
+        <template is="dom-if" if="[[!isBeta]]">
         <div class="card">
           <iron-icon icon="remove-circle-outline"></iron-icon>
           <h1 disabled>飲食</h1>
           <p>呷飽沒？</p>
         </div>
+        </template>
+        <template is="dom-if" if="[[isBeta]]" restamp="true">
+        <a navi-tile href="[[rootPath]]food">
+          <div class="card" style="background-color: #F4FF81;">
+            <iron-icon icon="maps:local-dining"></iron-icon>
+            <h1>飲食</h1>
+            <p>呷飽沒？</p>
+          </div>
+        </a>
+        </template>
 
         <div class="card">
           <iron-icon icon="remove-circle-outline"></iron-icon>

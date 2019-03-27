@@ -1,5 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
+import '@polymer/polymer/lib/elements/dom-if.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-header/app-header.js';
@@ -84,7 +85,9 @@ class ShellPage extends PolymerElement {
         }
       </style>
 
-      <app-location route="{{route}}" url-space-regex="^[[rootPath]]">
+      <app-location
+        route="{{route}}" url-space-regex="^[[rootPath]]"
+        query-params="{{_queryParams}}">
       </app-location>
 
       <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
@@ -97,7 +100,9 @@ class ShellPage extends PolymerElement {
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="landing" href="[[rootPath]]landing">主選單</a>  
             <a name="tldr" href="[[rootPath]]tldr">懶人包</a>
-            <a name="food" href="[[rootPath]]food">飲食</a>  
+            <template is="dom-if" if="[[_isBeta]]" restamp="true">
+            <a name="food" href="[[rootPath]]food">飲食</a>
+            </template>
           </iron-selector>
         </app-drawer>
 
@@ -114,7 +119,7 @@ class ShellPage extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <landing-page name="landing"></landing-page>
+            <landing-page name="landing" is-beta="[[_isBeta]]"></landing-page>
             <tldr-page name="tldr"></tldr-page>
             <food-page name="food"></food-page>
             <my-view404 name="view404"></my-view404>
@@ -137,7 +142,12 @@ class ShellPage extends PolymerElement {
         observer: '_pageChanged'
       },
       routeData: Object,
-      subroute: Object
+      subroute: Object,
+      _queryParams: Object,
+      _isBeta: {
+        type: Boolean,
+        computed: '_computeIsBeta(_queryParams.beta)'
+      }
     };
   }
 
@@ -185,6 +195,10 @@ class ShellPage extends PolymerElement {
         import('./my-view404.js');
         break;
     }
+  }
+
+  _computeIsBeta(beta) {
+    return beta === 'true';
   }
 }
 
