@@ -102,6 +102,7 @@ class ShellPage extends PolymerElement {
             <a name="tldr" href="[[rootPath]]tldr">懶人包</a>
             <template is="dom-if" if="[[_isBeta]]" restamp="true">
             <a name="food" href="[[rootPath]]food">飲食</a>
+            <a name="housing" href="[[rootPath]]housing">住宿</a>
             </template>
           </iron-selector>
         </app-drawer>
@@ -122,6 +123,7 @@ class ShellPage extends PolymerElement {
             <landing-page name="landing" is-beta="[[_isBeta]]"></landing-page>
             <tldr-page name="tldr"></tldr-page>
             <food-page name="food"></food-page>
+            <housing-page name="housing"></housing-page>
             <my-view404 name="view404"></my-view404>
           </iron-pages>
 
@@ -164,7 +166,7 @@ class ShellPage extends PolymerElement {
      // Show 'view1' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'landing';
-    } else if (['tldr', 'food', 'landing'].indexOf(page) !== -1) {
+    } else if (['tldr', 'food', 'landing', 'housing'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'view404';
@@ -191,6 +193,9 @@ class ShellPage extends PolymerElement {
       case 'food':
         import('./food-page.js');
         break;
+      case 'housing':
+        import('./housing-page.js');
+        break;
       case 'view404':
         import('./my-view404.js');
         break;
@@ -198,7 +203,8 @@ class ShellPage extends PolymerElement {
   }
 
   _computeIsBeta(beta) {
-    return beta === 'true';
+    //return beta === 'true';
+    return true;
   }
 }
 
