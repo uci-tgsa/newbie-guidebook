@@ -76,6 +76,35 @@ class OnCampusHousingPage extends PolymerElement {
             visibility: visible;
             height: auto;
         }
+
+        .card .row {
+            @apply --layout-horizontal
+            @apply --layout-center;
+        }
+        .card .row .compare-cell{
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .card .row .compare-cell:last-of-type{
+            margin: 0;
+        }
+        .card .row .compare-cell::before{
+            content: "沒";
+            color: red;
+        }
+        .card .row .compare-cell[pos]::before{
+            content: "有";
+            color: green;
+        }
+
+        .card .rent {
+            font-weight: bold;
+            margin-top: 3px;
+        }
+        .card .rent::before {
+            content: "房租：";
+            font-weight: initial;
+        }
         @media (max-width: 900px) {
         }
         </style>
@@ -94,6 +123,11 @@ class OnCampusHousingPage extends PolymerElement {
 新VP 舊，房租也在兩者之間。新PV（7100-8800，其餘floor plan）與新VP 相仿。新
 舊建築的差異影響最明顯的就是隔音。
                 </span>
+                <div class="row">
+                    <span class="compare-cell">包電費</span>
+                    <span class="compare-cell">附傢俱</span>
+                </div>
+                <div class="rent">中低(舊)&nbsp/&nbsp中高(新)</div>
             </div>
             <div class="card">
                 <h3 title>Verano Place(VP) - Old</h1>
@@ -103,6 +137,11 @@ class OnCampusHousingPage extends PolymerElement {
 靜，感覺治安也很好。Family housing 的區域會有小孩玩耍的聲音，不過就算這樣也不會
 吵。社區內還有一個住戶可以免費預約的聚會場地。
                 </span>
+                <div class="row">
+                    <span class="compare-cell" pos>包電費</span>
+                    <span class="compare-cell">附傢俱</span>
+                </div>
+                <div class="rent">低</div>
             </div>
             <div class="card">
                 <h3 title>Verano Place(VP) - New</h1>
@@ -114,6 +153,11 @@ class OnCampusHousingPage extends PolymerElement {
 車放置架、洗衣間和郵箱。Building 66 有Amazon locker 可以取或寄Amazon 貨物。
 VP 地址普遍紊亂，最好理想接送地點在Housing Office（多數GPS 找的到）。
                 </span>
+                <div class="row">
+                    <span class="compare-cell">包電費</span>
+                    <span class="compare-cell">附傢俱</span>
+                </div>
+                <div class="rent">中高</div>
             </div>
             <div class="card">
                 <h3 title>Campus Villege(CV)</h1>
@@ -129,6 +173,11 @@ Wi-Fi。有兩座停車場，沒有給 Visitor 停車的車位，只有幾個臨
 的停車場 (需要停車費)，所以比較難邀請朋友到家。社區中心 (Community Center) 裡有
 間小健身房、有間娛樂室內附 Xbox、以及自習室內附鋼琴。
                 </span>
+                <div class="row">
+                    <span class="compare-cell">包電費</span>
+                    <span class="compare-cell" pos>附傢俱</span>
+                </div>
+                <div class="rent">中高</div>
             </div>
             <div class="card">
                 <h3 title>VDCN&nbsp&amp&nbspVDC</h1>
@@ -151,6 +200,11 @@ $1,500/月，月租含水電、瓦斯、網路、整修費，除非用太兇才�
 是1 小時內就有人搞定，二十四小時都有人在leasing office 待命，而且入住前ACC 都會
 先把房間打掃滿乾淨的，自己不用再花很多時間整理。
                 </span>
+                <div class="row">
+                    <span class="compare-cell" pos>包電費</span>
+                    <span class="compare-cell" pos>附傢俱</span>
+                </div>
+                <div class="rent">高</div>
             </div>
             <div class="card">
                 <h3 title>Plaza Verde</h1>
@@ -158,6 +212,11 @@ $1,500/月，月租含水電、瓦斯、網路、整修費，除非用太兇才�
                 Plaza Verde 為2019 年新蓋好也是由ACC 管理的宿舍，預計2019 年9 月啟用，目前已
 經開放申請，詳細情形請參考ACC 網站。
                 </span>
+                <div class="row">
+                    <span class="compare-cell" pos>包電費</span>
+                    <span class="compare-cell" pos>附傢俱</span>
+                </div>
+                <div class="rent">高</div>
             </div>
         </div>
         `;
