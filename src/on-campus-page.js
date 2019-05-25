@@ -109,7 +109,7 @@ class OnCampusHousingPage extends PolymerElement {
         }
         </style>
         <div id="houseMap">
-        <img src="../images/on-campus-map.png"/>
+        <img src="images/on-campus-map.png"/>
         </div>
         <div id="description">
             <div class="card">
