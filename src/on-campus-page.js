@@ -1,5 +1,6 @@
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
+import '@polymer/iron-image/iron-image.js';
 import './shared-styles.js';
 
 /**
@@ -30,13 +31,15 @@ class OnCampusHousingPage extends PolymerElement {
             height: 560px;
             overflow:auto;
         }
-        #houseMap img {
-            display: block;
-            max-width: 980px;
-            max-height: 560px;
-            height: auto;
-            width: auto;
+        #houseMap iron-image {
+            --iron-image-width: 980px;
+            --iron-image-height: 560px;
+            --iron-image-placeholder: {
+                background-repeat: no-repeat;
+                background-size: 980px 560px;
+            };
         }
+
         #description {
             @apply --layout-vertical;
             @apply --layout-center;
@@ -105,11 +108,11 @@ class OnCampusHousingPage extends PolymerElement {
             content: "房租：";
             font-weight: initial;
         }
-        @media (max-width: 900px) {
-        }
         </style>
         <div id="houseMap">
-        <img src="images/on-campus-map.png"/>
+        <iron-image preload
+            src="images/on-campus-map.png"
+            placeholder="images/on-campus-map-ph.png"></iron-image>
         </div>
         <div id="description">
             <div class="card">
