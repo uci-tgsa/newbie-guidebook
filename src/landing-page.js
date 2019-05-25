@@ -73,11 +73,22 @@ class LandingPage extends PolymerElement {
           </div>
         </a>
 
+        <template is="dom-if" if="[[!isBeta]]">
         <div class="card">
           <iron-icon icon="remove-circle-outline"></iron-icon>
           <h1 disabled>住宿</h1>
           <p>校內住宿、校外租屋...</p>
         </div>
+        </template>
+        <template is="dom-if" if="[[isBeta]]" restamp="true">
+        <a navi-tile href="[[rootPath]]housing">
+          <div class="card" style="background-color: #DCEDC8;">
+            <iron-icon icon="home"></iron-icon>
+            <h1>住宿</h1>
+            <p>校內住宿、校外租屋...</p>
+          </div>
+        </a>
+        </template>
 
         <template is="dom-if" if="[[!isBeta]]">
         <div class="card">

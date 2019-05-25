@@ -203,8 +203,7 @@ class ShellPage extends PolymerElement {
   }
 
   _computeIsBeta(beta) {
-    //return beta === 'true';
-    return true;
+    return beta === 'true';
   }
 }
 
