@@ -1,1 +1,1 @@
-Aldrich Park 東側
+Aldrich Park 東側。墨西哥料理的 lunch plate 很坑。Taco bowl和nacho fries好吃，可以自己選要加什麼。
