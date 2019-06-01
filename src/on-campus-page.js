@@ -27,7 +27,7 @@ class OnCampusHousingPage extends PolymerElement {
         }
 
         #houseMap {
-            width: 75vw;
+            width: 70vw;
             height: 560px;
             overflow:auto;
         }
@@ -43,13 +43,13 @@ class OnCampusHousingPage extends PolymerElement {
         #description {
             @apply --layout-vertical;
             @apply --layout-center;
-            width: 25vw;
+            width: 30vw;
             height: 560px;
             overflow: auto;
             padding: 15px;
             box-sizing: border-box;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
             #houseMap {
                 width: 100vw;
             }

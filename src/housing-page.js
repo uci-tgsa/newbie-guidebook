@@ -4,9 +4,6 @@ import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/paper-tabs/paper-tabs.js';
 import '@polymer/paper-tabs/paper-tab.js';
 
-import './on-campus-page.js';
-import './off-campus-page.js';
-
 /**
  * `housing-page` Page showing housing information
  *
@@ -19,8 +16,9 @@ class HousingPage extends PolymerElement {
     static get properties() {
         return {
             _page: {
-                type: Number,
-                value: 0
+                type: String,
+                value: 'off-campus',
+                observer: '_pageChanged'
             }
         }
     }
@@ -52,33 +50,36 @@ class HousingPage extends PolymerElement {
         </style>
 
         <div id="header">
-            <paper-tabs selected="{{_page}}">
-                <paper-tab>校內住宿</paper-tab>
-                <paper-tab>校外住宿</paper-tab>
+            <paper-tabs selected="{{_page}}" attr-for-selected="name">
+                <paper-tab name="off-campus">校外住宿</paper-tab>
+                <paper-tab name="on-campus">校內住宿</paper-tab>
             </paper-tabs>
         </div>
-        <iron-pages selected="[[_page]]" role="main">
-            <on-campus-housing-page></on-campus-housing-page>
-            <off-campus-housing-page></off-campus-housing-page>
+        <iron-pages selected="[[_page]]" attr-for-selected="name" role="main">
+            <on-campus-housing-page name="on-campus"></on-campus-housing-page>
+            <off-campus-housing-page name="off-campus"></off-campus-housing-page>
         </iron-pages>
         `;
     }
 
-    /**
-     * Instance of the element is created/upgraded. Use: initializing state,
-     * set up event listeners, create shadow dom.
-     * @constructor
-     */
     constructor() {
         super();
     }
-
-    /**
-     * Use for one-time configuration of your component after local
-     * DOM is initialized.
-     */
     ready() {
         super.ready();
+    }
+
+    _pageChanged(page) {
+        switch(page) {
+        case 'on-campus':
+            import('./on-campus-page.js');
+            break;
+        case 'off-campus':
+            import('./off-campus-page.js');
+            break;
+        default:
+            console.error('Unrecognized page value');
+        }
     }
 }
 
