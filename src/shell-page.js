@@ -100,10 +100,8 @@ class ShellPage extends PolymerElement {
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="landing" href="[[rootPath]]landing">主選單</a>  
             <a name="tldr" href="[[rootPath]]tldr">懶人包</a>
-            <template is="dom-if" if="[[_isBeta]]" restamp="true">
             <a name="food" href="[[rootPath]]food">飲食</a>
             <a name="housing" href="[[rootPath]]housing">住宿</a>
-            </template>
           </iron-selector>
         </app-drawer>
 

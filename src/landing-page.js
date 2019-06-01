@@ -73,14 +73,6 @@ class LandingPage extends PolymerElement {
           </div>
         </a>
 
-        <template is="dom-if" if="[[!isBeta]]">
-        <div class="card">
-          <iron-icon icon="remove-circle-outline"></iron-icon>
-          <h1 disabled>住宿</h1>
-          <p>校內住宿、校外租屋...</p>
-        </div>
-        </template>
-        <template is="dom-if" if="[[isBeta]]" restamp="true">
         <a navi-tile href="[[rootPath]]housing">
           <div class="card" style="background-color: #DCEDC8;">
             <iron-icon icon="home"></iron-icon>
@@ -88,16 +80,7 @@ class LandingPage extends PolymerElement {
             <p>校內住宿、校外租屋...</p>
           </div>
         </a>
-        </template>
 
-        <template is="dom-if" if="[[!isBeta]]">
-        <div class="card">
-          <iron-icon icon="remove-circle-outline"></iron-icon>
-          <h1 disabled>飲食</h1>
-          <p>呷飽沒？</p>
-        </div>
-        </template>
-        <template is="dom-if" if="[[isBeta]]" restamp="true">
         <a navi-tile href="[[rootPath]]food">
           <div class="card" style="background-color: #F4FF81;">
             <iron-icon icon="maps:local-dining"></iron-icon>
@@ -105,7 +88,6 @@ class LandingPage extends PolymerElement {
             <p>呷飽沒？</p>
           </div>
         </a>
-        </template>
 
         <div class="card">
           <iron-icon icon="remove-circle-outline"></iron-icon>
