@@ -1,0 +1,166 @@
+[
+    {
+        "groupName": "Food Court",
+        "items":[
+            {
+                "name": "Student Center",
+                "location":{
+                    "latitude": 33.6488657,
+                    "longitude": -117.8430165
+                },
+                "address": "311 West Peltason Drive, Irvine, CA"
+            },
+            {
+                "name": "Phoenix Food Court",
+                "location":{
+                    "latitude": 33.6455037,
+                    "longitude": -117.8407165
+                },
+                "address": "Ring Road, Irvine, CA",
+                "detailPath": "assets/food/phoenix.md"
+            },
+            {
+                "name": "BC's Cavern Food Court",
+                "location":{
+                    "latitude": 33.6459288,
+                    "longitude": -117.8445338
+                },
+                "address": "500 Inner Ring Road, Irvine, CA",
+                "detailPath": "assets/food/bc.md"
+            },
+            {
+                "name": "Paul Merage",
+                "location":{
+                    "latitude": 33.6468644,
+                    "longitude": -117.8381889
+                },
+                "address": "4293 Pereira Dr, Irvine, CA 92697",
+                "detailPath": "assets/food/paul-merage.md"
+            }
+        ]
+    },
+    {
+        "groupName": "吃的",
+        "items": [
+            {
+                "name": "Chipotle",
+                "location": {
+                    "latitude": 33.6495626,
+                    "longitude": -117.8415105
+                },
+                "address": "4255 Campus Dr Ste A116, Irvine, CA 92612",
+                "detailPath": "assets/food/chipotle.md"
+            },
+            {
+                "name": "Yushoken (ramen)",
+                "location": {
+                    "latitude": 33.6507812,
+                    "longitude": -117.841071
+                },
+                "address": "4255 Campus Dr, Irvine, CA 92612",
+                "detailPath": "assets/food/yushoken.md"
+            },
+            {
+                "name": "Temakira",
+                "location": {
+                    "latitude": 33.6504419,
+                    "longitude": -117.838492
+                },
+                "address": "4237 Campus Dr B164, Irvine, CA 92612",
+                "detailPath": "assets/food/temakira.md"
+            }
+        ]
+    },
+    {
+        "groupName": "Kiosk/輕食",
+        "items": [
+            {
+                "name": "Cafe Espresso",
+                "location": {
+                    "latitude": 33.6438763,
+                    "longitude": -117.8436453
+                },
+                "address": "Irvine, CA 92697",
+                "detailPath": "assets/food/cafe-espresso.md"
+            },
+            {
+                "name": "Java City",
+                "location": {
+                    "latitude": 33.6434354,
+                    "longitude": -117.8412595
+                },
+                "address": "2004 Los Trancos Dr, Irvine, CA 92617",
+                "detailPath": "assets/food/java-city.md"
+            },
+            {
+                "name": "Au Bon Pain",
+                "location": {
+                    "latitude": 33.6469476,
+                    "longitude": -117.8380129
+                },
+                "address": "4290 Pereira Dr #1128, Irvine, CA 92697",
+                "detailPath": "assets/food/au-bon-pain.md"
+            },
+            {
+                "name": "Green Room (Cyber A Cafe)",
+                "location": {
+                    "latitude": 33.6497994,
+                    "longitude": -117.8469193
+                },
+                "address": "712 Arts Plaza, Irvine, CA 92617",
+                "detailPath": "assets/food/green-room.md"
+            },
+            {
+                "name": "Mendocino Farm",
+                "location": {
+                    "latitude": 33.6508001,
+                    "longitude": -117.8412973
+                },
+                "address": "4187 Campus Dr, Irvine, CA 92612",
+                "detailPath": "assets/food/mendocino.md"
+            }
+        ]
+    },
+    {
+        "groupName": "手搖杯",
+        "items": [
+            {
+                "name": "Sharetea",
+                "location": {
+                    "latitude": 33.6505562,
+                    "longitude": -117.8382501
+                },
+                "address": "4199 Campus Dr suite c, Irvine, CA 92612",
+                "detailPath": "assets/food/share-tea.md"
+            }
+        ]
+    },
+    {
+        "groupName": "速食",
+        "items": [
+            {
+                "name": "Jack in the Box",
+                "location": {
+                    "latitude": 33.6486507,
+                    "longitude": -117.8402137
+                },
+                "address": "4289 Campus Dr, Irvine, CA 92612",
+                "detailPath": "assets/food/jack-in-the-box.md"
+            }
+        ]
+    },
+    {
+        "groupName": "Bar",
+        "items": [
+            {
+                "name": "Anthill Pub & Grille",
+                "location": {
+                    "latitude": 33.6489369,
+                    "longitude": -117.8445014
+                },
+                "address": "215 Pereira Dr, Irvine, CA 92697",
+                "detailPath": "assets/food/anthill-bar.md"
+            }
+        ]
+    }
+]

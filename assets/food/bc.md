@@ -1,0 +1,1 @@
+Aldrich Park 西側 Steinhaus Hall 樓下
